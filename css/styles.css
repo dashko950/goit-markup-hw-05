@@ -653,7 +653,7 @@ a:focus {
 
 /* Группа поля формы */
 .form-group {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 
 /* Лейбл поля */
