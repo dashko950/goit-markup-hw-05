@@ -791,6 +791,6 @@ a:focus {
 
 .send-button:hover,
 .send-button:focus {
-  background-color: var(--pressed-state);
+  background-color: #404bbf; /* конкретный цвет */
   border: none;
 }
