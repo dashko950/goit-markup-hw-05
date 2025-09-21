@@ -471,8 +471,6 @@ img {
 /* Focus styles */
 button:focus,
 a:focus {
-  outline: 2px solid var(--primary-brand);
-  outline-offset: 2px;
 }
 
 /* Icon styles */
