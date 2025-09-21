@@ -1,6 +1,6 @@
 /* Reset and base styles */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.comss2?family=Raleway:wght@700&family=Roboto:wght@400;500;700&display=swap");
 
 /* Base styles */
 :root {
@@ -604,13 +604,13 @@ a:focus {
 
 /* Стили при наведении (hover) */
 .close-button:hover {
-  background-color: #404bbf;
+  background-color: var(--pressed-state);
   border: none;
 }
 
 /* Стили при фокусе (focus) */
 .close-button:focus {
-  background-color: #404bbf;
+  background-color: var(--pressed-state);
   border: none;
 }
 
@@ -621,12 +621,12 @@ a:focus {
 
 /* Изменение цвета иконки при hover */
 .close-button:hover .close-icon {
-  fill: #ffffff;
+  fill: var(--white);
 }
 
 /* Изменение цвета иконки при focus */
 .close-button:focus .close-icon {
-  fill: #ffffff;
+  fill: var(--white);
 }
 
 /* Текст параграфа */
@@ -680,7 +680,7 @@ a:focus {
 
 /* Изменение цвета рамки при фокусе на input */
 .form-input:focus {
-  border-color: #4d5ae5;
+  border-color: var(--primary-brand);
 }
 
 /* Иконки в полях ввода */
@@ -695,7 +695,7 @@ a:focus {
 
 /* Изменение цвета иконки при фокусе на input */
 .input-container:focus-within .input-icon {
-  fill: #4d5ae5;
+  fill: var(--primary-brand);
 }
 
 /* Текстовая область */
@@ -717,12 +717,12 @@ a:focus {
 
 /* Изменение цвета рамки при фокусе на textarea */
 .form-textarea:focus {
-  border-color: #4d5ae5;
+  border-color: var(--primary-brand);
 }
 
 /* Чекбокс */
 .checkbox-wrapper {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .checkbox-label {
@@ -749,11 +749,11 @@ a:focus {
   margin-right: 8px;
 }
 
-/* Стили для checked состояния */
+/* Стили для checked состояния - используем переменные */
 .form-checkbox:checked + .checkbox-label .checkbox-box {
-  background-color: #404bbf;
+  background-color: var(--pressed-state);
   border: none;
-  fill: #f4f4fd;
+  fill: var(--light);
 }
 
 /* Ссылка Privacy Policy */
