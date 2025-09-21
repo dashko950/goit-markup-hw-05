@@ -793,4 +793,5 @@ a:focus {
 .send-button:focus {
   background-color: #404bbf; /* конкретный цвет */
   border: none;
+  fill: #ffffff;
 }
