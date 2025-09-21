@@ -1,19 +1,17 @@
+const modalOpenBtn = document.querySelector("[data-modal-open]");
+const modalCloseBtn = document.querySelector(".close-button");
 const modalContainer = document.querySelector(".modal-container");
-const closeButton = document.querySelector(".modal-close-button"); // кнопка хрестик
 
-// Відкриття модалки
-function openModal() {
+modalOpenBtn.addEventListener("click", () => {
   modalContainer.classList.add("active");
-}
+});
 
-// Закриття модалки
-function closeModal() {
+modalCloseBtn.addEventListener("click", () => {
   modalContainer.classList.remove("active");
-}
+});
 
-closeButton.addEventListener("click", closeModal);
-
-// Опціонально: закриття по кліку на фон
 modalContainer.addEventListener("click", (e) => {
-  if (e.target === modalContainer) closeModal();
+  if (e.target === modalContainer) {
+    modalContainer.classList.remove("active");
+  }
 });
