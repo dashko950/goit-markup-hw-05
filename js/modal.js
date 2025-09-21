@@ -1,17 +1,30 @@
-const modalOpenBtn = document.querySelector("[data-modal-open]");
-const modalCloseBtn = document.querySelector(".close-button");
-const modalContainer = document.querySelector(".modal-container");
+<script>
+  // Знаходимо елементи
+  const modal = document.getElementById('modal');
+  const openModalBtn = document.querySelector('.open-modal-btn');
+  const closeModalBtn = document.querySelector('.modal-close');
 
-modalOpenBtn.addEventListener("click", () => {
-  modalContainer.classList.add("active");
-});
+  // Відкриття модалки
+  openModalBtn.addEventListener('click', () => {
+    modal.classList.add('is-open');
+  });
 
-modalCloseBtn.addEventListener("click", () => {
-  modalContainer.classList.remove("active");
-});
+  // Закриття модалки по кнопці
+  closeModalBtn.addEventListener('click', () => {
+    modal.classList.remove('is-open');
+  });
 
-modalContainer.addEventListener("click", (e) => {
-  if (e.target === modalContainer) {
-    modalContainer.classList.remove("active");
-  }
-});
+  // Закриття модалки по кліку на бекдроп
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.classList.remove('is-open');
+    }
+  });
+
+  // Закриття модалки по Esc
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+      modal.classList.remove('is-open');
+    }
+  });
+</script>

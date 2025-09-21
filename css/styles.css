@@ -391,13 +391,13 @@ img {
 
 /* Footer */
 .footer {
-  background-color: var(--dark);
-  padding: 100px 0;
+  background-color: #2e2f42;
+  padding: 40px 24px;
 }
 
 .footer-container {
-  display: flex;
-  align-items: baseline;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-info {
@@ -481,37 +481,35 @@ a:focus {
 .icon {
   fill: var(--light);
 }
-/* Контейнер модального вікна */
-.modal-overlay {
+
+.modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* Модальне вікно */
+.modal-backdrop.is-open {
+  display: flex;
+}
 .modal-window {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   width: 408px;
   min-height: 584px;
-  padding: 72px 24px 24px 24px;
   background: #fcfcfc;
+  border-radius: 4px;
+  padding: 72px 24px 24px 24px;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-sizing: border-box;
 }
-
-/* Кнопка закриття */
-.close-button {
+.modal-close {
   position: absolute;
   top: 24px;
   right: 24px;
@@ -523,26 +521,26 @@ a:focus {
   justify-content: center;
   background-color: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 0;
   cursor: pointer;
+  padding: 0;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.close-button:hover,
-.close-button:focus {
+.modal-close:hover,
+.modal-close:focus {
   background-color: #404bbf;
   border: none;
 }
-.close-button:hover svg,
-.close-button:focus svg {
-  fill: #ffffff;
-}
-.close-icon {
+.modal-close-icon {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.modal-close:hover .modal-close-icon,
+.modal-close:focus .modal-close-icon {
+  fill: #ffffff;
+}
 
-/* Текст параграфу */
-.modal-text {
+/* Modal Form */
+.modal-title {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
@@ -551,35 +549,21 @@ a:focus {
   color: #2e2f42;
   margin-bottom: 16px;
 }
-
-/* Форма */
-.modal-form {
-  display: flex;
-  flex-direction: column;
+.modal-form .modal-field {
+  margin-bottom: 16px;
 }
-
-/* Група поля форми */
-.form-group {
-  margin-bottom: 8px;
-}
-
-/* Лейбл поля */
-.form-label {
+.modal-label {
+  display: block;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
-  display: block;
   margin-bottom: 4px;
 }
-
-/* Контейнер input + іконка */
-.input-container {
+.input-wrapper {
   position: relative;
 }
-
-/* Поля вводу */
-.form-input {
+.modal-input {
   width: 100%;
   height: 40px;
   border: 1px solid rgba(46, 47, 66, 0.4);
@@ -589,26 +573,20 @@ a:focus {
   outline: transparent;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.form-input:focus {
+.modal-input:focus {
   border-color: #4d5ae5;
 }
-
-/* Іконки у полях вводу */
 .input-icon {
   position: absolute;
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
-  width: 18px;
-  height: 24px;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.input-container:focus-within .input-icon {
+.modal-input:focus + .input-icon {
   fill: #4d5ae5;
 }
-
-/* Текстова область */
-.form-textarea {
+.modal-textarea {
   width: 100%;
   height: 120px;
   font-size: 12px;
@@ -623,55 +601,40 @@ a:focus {
   resize: none;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.form-textarea:focus {
+.modal-textarea:focus {
   border-color: #4d5ae5;
 }
-
-/* Чекбокс */
-.form-checkbox.visually-hidden {
-  display: none;
+/* Checkbox */
+.visually-hidden {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: #8e8f99;
-}
-.checkbox-wrapper {
-  margin-bottom: 24px;
-}
-
-.checkbox-box {
+.custom-checkbox {
   width: 16px;
   height: 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
   display: inline-flex;
-  justify-content: center;
   align-items: center;
-  fill: transparent;
+  justify-content: center;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  margin-right: 8px;
+  fill: transparent;
 }
-.form-checkbox:checked + .checkbox-label .checkbox-box {
+#user-privacy:checked + .modal-checkbox-label .custom-checkbox {
   background-color: #404bbf;
   border: none;
   fill: #f4f4fd;
 }
-
-/* Посилання Privacy Policy */
 .privacy-link {
   color: #4d5ae5;
-  margin-left: 4px;
-  text-decoration: none;
 }
 
-/* Кнопка відправки */
-.submit-button {
+/* Submit Button */
+.modal-submit-btn {
   display: block;
   margin: 0 auto;
   min-width: 169px;
@@ -687,28 +650,22 @@ a:focus {
   border: none;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(46, 47, 66, 0.4);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0;
-  visibility: hidden;
+.subscribe-container {
+  display: flex;
+  flex-direction: column;
 }
-
-.modal-container.active {
-  opacity: 1;
-  visibility: visible;
+.subscribe-title {
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #ffffff;
 }
 .subscribe-form {
   display: flex;
   gap: 24px;
 }
-
 .subscribe-input {
   width: 264px;
   height: 40px;
@@ -718,22 +675,19 @@ a:focus {
   line-height: 2;
   letter-spacing: 0.04em;
   padding-left: 16px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
   color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
-
 .subscribe-input::placeholder {
   color: #ffffff;
 }
-
 .subscribe-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 165px;
   height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -744,7 +698,6 @@ a:focus {
   border: none;
   border-radius: 4px;
 }
-
 .subscribe-icon {
   margin-left: 16px;
 }
