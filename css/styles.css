@@ -244,6 +244,7 @@ img {
 .hero-btn:hover,
 .hero-btn:focus {
   background-color: var(--pressed-state);
+  border: none;
 }
 
 /* Features */
