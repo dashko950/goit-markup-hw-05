@@ -756,7 +756,7 @@ a:focus {
 }
 
 /* Стили для checked состояния - используем переменные */
-.form-checkbox:checked + .checkbox-label .checkbox-box {
+.form-checkbox:checked + .checkbox-label > .checkbox-box {
   background-color: #404bbf;
   border: none;
 }
