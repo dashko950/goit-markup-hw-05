@@ -481,337 +481,104 @@ a:focus {
 .icon {
   fill: var(--light);
 }
-/* Стили для модального окна */
-.backdrop {
+/* Контейнер модального вікна */
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
-  z-index: 1000;
-  opacity: 1;
-  visibility: visible;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.backdrop.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.modal {
+/* Модальне вікно */
+.modal-window {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%);
   width: 408px;
   min-height: 584px;
-  background-color: var(--modal-background);
+  padding: 72px 24px 24px 24px;
+  background: #fcfcfc;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
-    0 1px 1px 0 rgba(0, 0, 0, 0.14);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 72px 24px 24px;
+  box-sizing: border-box;
 }
 
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.9);
-}
-
-.modal-close-btn {
+/* Кнопка закриття */
+.close-button {
   position: absolute;
   top: 24px;
   right: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  background-color: var(--accent);
+  background-color: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  cursor: pointer;
   padding: 0;
+  cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.modal-close-btn:hover,
-.modal-close-btn:focus {
-  background-color: var(--pressed-state);
+.close-button:hover,
+.close-button:focus {
+  background-color: #404bbf;
   border: none;
 }
-
-.modal-close-icon {
-  fill: var(--dark);
+.close-button:hover svg,
+.close-button:focus svg {
+  fill: #ffffff;
+}
+.close-icon {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close-btn:hover .modal-close-icon,
-.modal-close-btn:focus .modal-close-icon {
-  fill: var(--white);
-}
-
-.modal-title {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  text-align: center;
-  color: var(--dark);
-  margin-bottom: 16px;
-}
-
-/* Стили для формы */
-.form-field {
-  margin-bottom: 16px;
-}
-
-.form-label {
-  display: block;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: var(--subtle-text);
-  margin-bottom: 4px;
-}
-
-.input-wrapper {
-  position: relative;
-}
-
-.form-input,
-.form-textarea {
-  width: 100%;
-  height: 40px;
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 4px;
-  padding: 11px 16px 11px 38px;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: var(--dark);
-  background-color: transparent;
-  outline: transparent;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-input:focus,
-.form-textarea:focus {
-  border-color: var(--primary-brand);
-}
-
-.form-textarea {
-  height: 120px;
-  resize: none;
-  padding: 8px 16px;
-}
-
-.form-textarea::placeholder {
-  color: rgba(46, 47, 66, 0.4);
-}
-
-.form-icon {
-  position: absolute;
-  top: 50%;
-  left: 16px;
-  transform: translateY(-50%);
-  fill: var(--dark);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-input:focus + .form-icon {
-  fill: var(--primary-brand);
-}
-
-/* Стили для кастомного чекбокса */
-.checkbox-field {
-  margin-bottom: 24px;
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  line-height: 1.17;
-  letter-spacing: 0.04em;
-  color: var(--subtle-text);
-  cursor: pointer;
-}
-
-.custom-checkbox {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  border: 1px solid rgba(46, 47, 66, 0.4);
-  border-radius: 2px;
-  margin-right: 8px;
-  fill: transparent;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-checkbox:checked + .checkbox-label .custom-checkbox {
-  background-color: var(--pressed-state);
-  border: none;
-  fill: var(--light);
-}
-
-.form-checkbox:focus + .checkbox-label .custom-checkbox {
-  border-color: var(--primary-brand);
-}
-
-.policy-link {
-  color: var(--primary-brand);
-  text-decoration: underline;
-}
-
-/* Кнопка отправки формы */
-.form-submit-btn {
-  display: block;
-  min-width: 169px;
-  height: 56px;
-  background-color: var(--primary-brand);
-  color: var(--white);
-  border: none;
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  margin: 0 auto;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-submit-btn:hover,
-.form-submit-btn:focus {
-  background-color: var(--pressed-state);
-}
-
-/* Стили для формы подписки в футере */
-
-/* Footer Subscribe */
-.footer-subscribe {
-  margin-left: 80px; /* Відступ від попереднього блоку */
-}
-
-.subscribe-text {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
-  color: #ffffff;
-  margin-bottom: 16px; /* Відступ між заголовком і формою */
-  display: block;
-}
-
-.subscribe-form {
-  display: flex; /* Рядок для input і кнопки */
-  gap: 24px; /* Відстань між полем вводу і кнопкою */
-}
-
-.subscribe-label {
-  display: block;
-}
-
-.subscribe-input {
-  width: 264px;
-  height: 40px;
-  border: 1px solid #ffffff;
-  border-radius: 4px;
-  background-color: transparent;
-  padding-left: 16px;
-  font-size: 12px;
-  line-height: 2;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  outline: none;
-}
-
-.subscribe-input::placeholder {
-  color: #ffffff;
-}
-
-.subscribe-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 165px;
-  height: 40px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  background-color: #4d5ae5;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.25s;
-}
-
-.subscribe-btn:hover,
-.subscribe-btn:focus {
-  background-color: #404bbf; /* pressed state */
-}
-
-.subscribe-icon {
-  margin-left: 16px;
-}
-
-/* Отключение скролла при открытом модальном окне */
-.no-scroll {
-  overflow: hidden;
-}
-/* Дополнительные стили для модального окна */
-.modal {
-  padding: 72px 24px 24px 24px;
-}
-
-.modal-close-btn {
-  width: 24px;
-  height: 24px;
-}
-
-.modal-title {
-  margin-bottom: 16px;
-}
-.modal-container p.modal-text {
+/* Текст параграфу */
+.modal-text {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   text-align: center;
   letter-spacing: 0.02em;
-  color: var(--text-color, #2e2f42);
+  color: #2e2f42;
   margin-bottom: 16px;
 }
 
-/* Стили для полей формы в модальном окне */
-.form-field {
+/* Форма */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Група поля форми */
+.form-group {
   margin-bottom: 8px;
 }
 
+/* Лейбл поля */
 .form-label {
-  display: block;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
-  color: var(--subtle-text);
+  color: #8e8f99;
+  display: block;
   margin-bottom: 4px;
 }
 
-.input-wrapper {
+/* Контейнер input + іконка */
+.input-container {
   position: relative;
 }
 
+/* Поля вводу */
 .form-input {
   width: 100%;
   height: 40px;
@@ -822,24 +589,25 @@ a:focus {
   outline: transparent;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .form-input:focus {
-  border-color: var(--primary-brand);
+  border-color: #4d5ae5;
 }
 
-.form-icon {
+/* Іконки у полях вводу */
+.input-icon {
   position: absolute;
   left: 16px;
   top: 50%;
   transform: translateY(-50%);
+  width: 18px;
+  height: 24px;
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.form-input:focus + .form-icon {
-  fill: var(--primary-brand);
+.form-input:focus + .input-icon {
+  fill: #4d5ae5;
 }
 
-/* Стили для textarea */
+/* Текстова область */
 .form-textarea {
   width: 100%;
   height: 120px;
@@ -855,77 +623,72 @@ a:focus {
   resize: none;
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .form-textarea:focus {
-  border-color: var(--primary-brand);
+  border-color: #4d5ae5;
 }
 
-/* Стили для кастомного чекбокса */
-.checkbox-field {
-  margin-bottom: 24px;
+/* Чекбокс */
+.form-checkbox.visually-hidden {
+  display: none;
 }
-
 .checkbox-label {
   display: flex;
   align-items: center;
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
-  color: var(--subtle-text);
-  cursor: pointer;
+  color: #8e8f99;
 }
-
-.custom-checkbox {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+.checkbox-box {
   width: 16px;
   height: 16px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 2px;
-  margin-right: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   fill: transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-right: 8px;
 }
-
-.form-checkbox:checked + .checkbox-label .custom-checkbox {
-  background-color: var(--pressed-state);
+.form-checkbox:checked + .checkbox-label .checkbox-box {
+  background-color: #404bbf;
   border: none;
-  fill: var(--light);
+  fill: #f4f4fd;
 }
 
-.form-checkbox:focus + .checkbox-label .custom-checkbox {
-  border-color: var(--primary-brand);
-}
-
-.policy-link {
-  color: var(--primary-brand);
-  text-decoration: underline;
+/* Посилання Privacy Policy */
+.privacy-link {
+  color: #4d5ae5;
   margin-left: 4px;
+  text-decoration: none;
 }
 
-/* Кнопка отправки формы */
-.form-submit-btn {
+/* Кнопка відправки */
+.submit-button {
   display: block;
+  margin: 0 auto;
   min-width: 169px;
   height: 56px;
-  background-color: var(--primary-brand);
-  color: var(--white);
-  border: none;
-  border-radius: 4px;
   font-family: "Roboto", sans-serif;
-  font-weight: 500;
   font-size: 16px;
+  font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.04em;
+  color: #ffffff;
   cursor: pointer;
-  margin: 0 auto;
+  background-color: #4d5ae5;
+  border: none;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.modal-container {
+  opacity: 0;
+  visibility: hidden;
+}
 
-.form-submit-btn:hover,
-.form-submit-btn:focus {
-  background-color: var(--pressed-state);
+.modal-container.active {
+  opacity: 1;
+  visibility: visible;
 }
