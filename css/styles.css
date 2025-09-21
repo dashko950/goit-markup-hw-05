@@ -539,7 +539,12 @@ a:focus {
 
 .subscribe-btn:hover,
 .subscribe-btn:focus {
-  background-color: var(--pressed-state);
+  background-color: #404bbf; /* конкретный цвет */
+  border: none; /* убираем border */
+}
+.subscribe-btn:hover .subscribe-icon,
+.subscribe-btn:focus .subscribe-icon {
+  fill: #ffffff;
 }
 
 .subscribe-icon {
@@ -680,7 +685,7 @@ a:focus {
 
 /* Изменение цвета рамки при фокусе на input */
 .form-input:focus {
-  border-color: var(--primary-brand);
+  border-color: #4d5ae5;
 }
 
 /* Иконки в полях ввода */
@@ -695,7 +700,7 @@ a:focus {
 
 /* Изменение цвета иконки при фокусе на input */
 .input-container:focus-within .input-icon {
-  fill: var(--primary-brand);
+  fill: #4d5ae5;
 }
 
 /* Текстовая область */
@@ -717,7 +722,8 @@ a:focus {
 
 /* Изменение цвета рамки при фокусе на textarea */
 .form-textarea:focus {
-  border-color: var(--primary-brand);
+  border-color: #4d5ae5; /* цвет рамки при фокусе */
+  margin-bottom: 16px; /* отступы между блоками */
 }
 
 /* Чекбокс */
@@ -751,11 +757,11 @@ a:focus {
 
 /* Стили для checked состояния - используем переменные */
 .form-checkbox:checked + .checkbox-label .checkbox-box {
-  background-color: var(--pressed-state);
+  background-color: #404bbf;
   border: none;
 }
 .form-checkbox:checked + .checkbox-label .checkbox-box .checkbox-icon {
-  fill: var(--light);
+  fill: #f4f4fd;
 }
 /* Ссылка Privacy Policy */
 .privacy-link {
@@ -786,4 +792,5 @@ a:focus {
 .send-button:hover,
 .send-button:focus {
   background-color: var(--pressed-state);
+  border: none;
 }
