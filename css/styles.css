@@ -696,8 +696,9 @@ a:focus {
 
 /* Стили для формы подписки в футере */
 
+/* Footer Subscribe */
 .footer-subscribe {
-  margin-left: 80px;
+  margin-left: 80px; /* Відступ від попереднього блоку */
 }
 
 .subscribe-text {
@@ -705,14 +706,14 @@ a:focus {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: var(--white);
-  margin-bottom: 16px;
+  color: #ffffff;
+  margin-bottom: 16px; /* Відступ між заголовком і формою */
   display: block;
 }
 
 .subscribe-form {
-  display: flex;
-  gap: 24px;
+  display: flex; /* Рядок для input і кнопки */
+  gap: 24px; /* Відстань між полем вводу і кнопкою */
 }
 
 .subscribe-label {
@@ -722,25 +723,20 @@ a:focus {
 .subscribe-input {
   width: 264px;
   height: 40px;
-  border: 1px solid var(--white);
+  border: 1px solid #ffffff;
   border-radius: 4px;
   background-color: transparent;
-  padding: 8px 16px;
+  padding-left: 16px;
   font-size: 12px;
   line-height: 2;
   letter-spacing: 0.04em;
-  color: var(--white);
-  outline: transparent;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  outline: none;
 }
 
 .subscribe-input::placeholder {
-  color: var(--white);
-}
-
-.subscribe-input:focus {
-  border-color: var(--primary-brand);
+  color: #ffffff;
 }
 
 .subscribe-btn {
@@ -749,22 +745,22 @@ a:focus {
   justify-content: center;
   min-width: 165px;
   height: 40px;
-  background-color: var(--primary-brand);
-  color: var(--white);
-  border: none;
-  border-radius: 4px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
+  color: #ffffff;
+  background-color: #4d5ae5;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.25s;
 }
 
 .subscribe-btn:hover,
 .subscribe-btn:focus {
-  background-color: var(--pressed-state);
+  background-color: #404bbf; /* pressed state */
 }
 
 .subscribe-icon {
