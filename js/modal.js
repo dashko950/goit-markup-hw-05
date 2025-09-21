@@ -1,30 +1,57 @@
-<script>
-  // Знаходимо елементи
-  const modal = document.getElementById('modal');
-  const openModalBtn = document.querySelector('.open-modal-btn');
-  const closeModalBtn = document.querySelector('.modal-close');
+// Открытие/закрытие модального окна
+const modalOpenBtn = document.querySelector("[data-modal-open]");
+const modalCloseBtn = document.querySelector(".close-button");
+const modalContainer = document.querySelector(".modal-container");
 
-  // Відкриття модалки
-  openModalBtn.addEventListener('click', () => {
-    modal.classList.add('is-open');
-  });
+function toggleModal() {
+  modalContainer.classList.toggle("active");
+  document.body.classList.toggle("no-scroll");
+}
 
-  // Закриття модалки по кнопці
-  closeModalBtn.addEventListener('click', () => {
-    modal.classList.remove('is-open');
-  });
+modalOpenBtn.addEventListener("click", toggleModal);
+modalCloseBtn.addEventListener("click", toggleModal);
 
-  // Закриття модалки по кліку на бекдроп
-  modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-      modal.classList.remove('is-open');
+// Закрытие модального окна при клике вне его области
+modalContainer.addEventListener("click", (e) => {
+  if (e.target === modalContainer) {
+    toggleModal();
+  }
+});
+
+// Закрытие модального окна при нажатии клавиши Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modalContainer.classList.contains("active")) {
+    toggleModal();
+  }
+});
+
+// Обработка отправки формы
+const modalForm = document.querySelector(".modal-form");
+modalForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  // Здесь можно добавить логику отправки данных формы
+  toggleModal();
+});
+
+// Валидация формы
+const formInputs = document.querySelectorAll(".form-input, .form-textarea");
+formInputs.forEach((input) => {
+  input.addEventListener("blur", () => {
+    if (input.value.trim() !== "") {
+      input.classList.add("filled");
+    } else {
+      input.classList.remove("filled");
     }
   });
+});
 
-  // Закриття модалки по Esc
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
-      modal.classList.remove('is-open');
+// Добавление стиля для body при открытии модального окна
+document.addEventListener("DOMContentLoaded", () => {
+  const style = document.createElement("style");
+  style.textContent = `
+    body.no-scroll {
+      overflow: hidden;
     }
-  });
-</script>
+  `;
+  document.head.appendChild(style);
+});

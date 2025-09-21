@@ -443,7 +443,6 @@
         </div>
       </section>
     </main>
-    <button type="button" class="open-modal-btn">Open Modal</button>
 
     <footer class="footer">
       <div class="container footer-container">
@@ -492,95 +491,129 @@
         </div>
 
         <!-- Форма подписки -->
-         <footer class="footer">
-    <div class="footer-container">
-      <div class="subscribe-container">
-        <p class="subscribe-title">Subscribe</p>
-        <form class="subscribe-form">
-          <label class="subscribe-label">
-            <input type="email" name="email" placeholder="E-mail" class="subscribe-input">
-          </label>
-          <button type="submit" class="subscribe-btn">
-            Subscribe
-            <svg width="24" height="24" class="subscribe-icon">
-              <use href="./images/icons.svg#arrow"></use>
-            </svg>
-          </button>
-        </form>
+        <div class="footer-subscribe">
+          <p class="subscribe-text">Subscribe</p>
+          <form class="subscribe-form">
+            <label class="subscribe-label">
+              <input
+                type="email"
+                name="user_email"
+                class="subscribe-input"
+                placeholder="E-mail"
+                required
+              />
+            </label>
+            <button type="submit" class="subscribe-btn">
+              Subscribe
+              <svg class="subscribe-icon" width="24" height="24">
+                <use href="./images/icons.svg#send"></use>
+              </svg>
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
     <!-- Контейнер модального окна -->
-   <div class="modal-backdrop" id="modal">
-    <div class="modal-window">
-      <button type="button" class="modal-close">
-        <svg width="8" height="8" class="modal-close-icon">
-          <use href="./images/icons.svg#close"></use>
-        </svg>
-      </button>
+    <div class="modal-container">
+      <!-- Модальное окно -->
+      <div class="modal-window">
+        <!-- Кнопка закрытия -->
+        <button type="button" class="close-button">
+          <svg width="8" height="8" class="close-icon">
+            <use href="./images/icons.svg#close"></use>
+          </svg>
+        </button>
+
         <!-- Параграф -->
-        <p class="modal-title">Send us a message</p>
+        <p class="modal-text">Your message goes here</p>
 
         <!-- Форма -->
         <form class="modal-form">
           <!-- Name -->
-           <div class="modal-field">
-          <label for="user-name" class="modal-label">Name</label>
-          <div class="input-wrapper">
-            <input id="user-name" type="text" name="user-name" placeholder="Text input" class="modal-input">
-            <svg width="18" height="24" class="input-icon">
-              <use href="./images/icons.svg#user"></use>
-            </svg>
+          <div class="form-group">
+            <label for="user-name" class="form-label">Name</label>
+            <div class="input-container">
+              <input
+                type="text"
+                id="user-name"
+                name="user-name"
+                class="form-input"
+              />
+              <svg width="18" height="24" class="input-icon">
+                <use href="./images/icons.svg#user"></use>
+              </svg>
+            </div>
           </div>
-        </div>
 
           <!-- Phone -->
-          <div class="modal-field">
-          <label for="user-phone" class="modal-label">Phone</label>
-          <div class="input-wrapper">
-            <input id="user-phone" type="text" name="user-phone" placeholder="Text input" class="modal-input">
-            <svg width="18" height="24" class="input-icon">
-              <use href="./images/icons.svg#phone"></use>
-            </svg>
+          <div class="form-group">
+            <label for="user-phone" class="form-label">Phone</label>
+            <div class="input-container">
+              <input
+                type="text"
+                id="user-phone"
+                name="user-phone"
+                class="form-input"
+              />
+              <svg width="18" height="24" class="input-icon">
+                <use href="./images/icons.svg#phone"></use>
+              </svg>
+            </div>
           </div>
-        </div>
 
           <!-- Email -->
-          <div class="modal-field">
-          <label for="user-email" class="modal-label">Email</label>
-          <div class="input-wrapper">
-            <input id="user-email" type="email" name="user-email" placeholder="Text input" class="modal-input">
-            <svg width="18" height="24" class="input-icon">
-              <use href="./images/icons.svg#email"></use>
-            </svg>
+          <div class="form-group">
+            <label for="user-email" class="form-label">Email</label>
+            <div class="input-container">
+              <input
+                type="text"
+                id="user-email"
+                name="user-email"
+                class="form-input"
+              />
+              <svg width="18" height="24" class="input-icon">
+                <use href="./images/icons.svg#email"></use>
+              </svg>
+            </div>
           </div>
-        </div>
 
           <!-- Comment -->
-          <div class="modal-field">
-          <label for="user-comment" class="modal-label">Comment</label>
-          <textarea id="user-comment" name="user-comment" placeholder="Text input" class="modal-textarea"></textarea>
-        </div>
+          <div class="form-group">
+            <label for="user-comment" class="form-label">Comment</label>
+            <textarea
+              id="user-comment"
+              name="user-comment"
+              placeholder="Text input"
+              class="form-textarea"
+            ></textarea>
+          </div>
 
-          <!-- Checkbox (исправленная версия) -->
-          <div class="modal-field">
-          <input type="checkbox" id="user-privacy" name="user-privacy" value="true" class="visually-hidden">
-          <label for="user-privacy" class="modal-checkbox-label">
-            <span class="custom-checkbox">
-              <svg width="10" height="8" class="checkbox-icon">
-                <use href="./images/icons.svg#check"></use>
-              </svg>
-            </span>
-            I accept the terms and conditions of the <a href="#" class="privacy-link">Privacy Policy</a>
-          </label>
-        </div>
+          <!-- Checkbox -->
+          <div class="checkbox-wrapper">
+            <input
+              type="checkbox"
+              id="user-privacy"
+              name="user-privacy"
+              value="true"
+              class="form-checkbox visually-hidden"
+            />
+            <label for="user-privacy" class="checkbox-label">
+              <span class="checkbox-box">
+                <svg width="10" height="8" class="checkbox-icon">
+                  <use href="./images/icons.svg#check"></use>
+                </svg>
+              </span>
+              I accept the terms and conditions of the
+              <a href="#" class="privacy-link">Privacy Policy</a>
+            </label>
+          </div>
 
           <!-- Submit button -->
-          <button type="submit" class="modal-submit-btn">Submit</button>
-      </form>
+          <button type="submit" class="submit-button">Submit</button>
+        </form>
+      </div>
     </div>
-  </div>
 
     <script src="./js/modal.js"></script>
   </body>
