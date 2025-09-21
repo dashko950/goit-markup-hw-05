@@ -753,9 +753,10 @@ a:focus {
 .form-checkbox:checked + .checkbox-label .checkbox-box {
   background-color: var(--pressed-state);
   border: none;
+}
+.form-checkbox:checked + .checkbox-label .checkbox-box .checkbox-icon {
   fill: var(--light);
 }
-
 /* Ссылка Privacy Policy */
 .privacy-link {
   color: var(--primary-brand);
