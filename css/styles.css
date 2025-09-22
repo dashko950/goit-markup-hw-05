@@ -651,7 +651,7 @@ a:focus {
 
 /* Группа поля формы */
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 /* Четвертый элемент - 16px */
 .form-group-fourth {
