@@ -706,7 +706,7 @@ a:focus {
 
 /* Изменение цвета рамки при фокусе на input */
 .form-input:focus {
-  border-color: #4d5ae5;
+  border-color: var(--primary-brand);
 }
 
 /* Иконки в полях ввода */
@@ -716,12 +716,12 @@ a:focus {
   top: 50%;
   transform: translateY(-50%);
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  fill: var(--dark);
+  fill: var(--subtle-text);
 }
 
 /* Изменение цвета иконки при фокусе на input */
 .input-container:focus .input-icon {
-  fill: #4d5ae5;
+  fill: var(--primary-brand) !important; /* #4d5ae5 */
 }
 
 /* Текстовая область */
@@ -780,7 +780,11 @@ a:focus {
   border: none;
 }
 .form-checkbox:checked + .checkbox-label .checkbox-icon {
-  fill: var(--light); /* #F4F4FD */
+  fill: var(--light) !important; /* #F4F4FD */
+}
+.checkbox-icon {
+  stroke: transparent;
+  transition: stroke 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Ссылка Privacy Policy */
 .privacy-link {
