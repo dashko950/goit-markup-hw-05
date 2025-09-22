@@ -662,6 +662,20 @@ a:focus {
 .form-group-fifth {
   margin-bottom: 24px;
 }
+/* Фіксуємо відступи */
+.form-group,
+.form-group-fourth,
+.checkbox-wrapper.form-group-fifth {
+  margin-bottom: 8px !important;
+}
+
+.form-group-fourth {
+  margin-bottom: 16px !important;
+}
+
+.checkbox-wrapper.form-group-fifth {
+  margin-bottom: 24px !important;
+}
 
 /* Лейбл поля */
 .form-label {
@@ -762,11 +776,11 @@ a:focus {
 
 /* Стили для checked состояния - используем переменные */
 .form-checkbox:checked + .checkbox-label > .checkbox-box {
-  background-color: #404bbf;
+  background-color: var(--pressed-state); /* #404bbf */
   border: none;
 }
-.form-checkbox:checked + .checkbox-label > .checkbox-box .checkbox-icon {
-  fill: var(--light);
+.form-checkbox:checked + .checkbox-label .checkbox-icon {
+  fill: var(--light); /* #F4F4FD */
 }
 /* Ссылка Privacy Policy */
 .privacy-link {
