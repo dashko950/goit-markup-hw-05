@@ -564,7 +564,7 @@ a:focus {
   visibility: hidden;
 }
 
-.modal-container.active {
+.modal-container.is-open {
   opacity: 1;
   visibility: visible;
 }

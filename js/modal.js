@@ -4,7 +4,7 @@ const modalCloseBtn = document.querySelector(".close-button");
 const modalContainer = document.querySelector(".modal-container");
 
 function toggleModal() {
-  modalContainer.classList.toggle("active");
+  modalContainer.classList.toggle("is-open"); // ← ИЗМЕНИЛОСЬ ЗДЕСЬ
   document.body.classList.toggle("no-scroll");
 }
 
@@ -20,7 +20,8 @@ modalContainer.addEventListener("click", (e) => {
 
 // Закрытие модального окна при нажатии клавиши Escape
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modalContainer.classList.contains("active")) {
+  if (e.key === "Escape" && modalContainer.classList.contains("is-open")) {
+    // ← И ЗДЕСЬ
     toggleModal();
   }
 });
