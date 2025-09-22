@@ -720,7 +720,7 @@ a:focus {
 }
 
 /* Изменение цвета иконки при фокусе на input */
-.input-container:focus .input-icon {
+.input-container:focus-within .input-icon {
   fill: var(--primary-brand) !important; /* #4d5ae5 */
 }
 
