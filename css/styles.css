@@ -706,7 +706,7 @@ a:focus {
 }
 
 /* Изменение цвета иконки при фокусе на input */
-.input-container:focus-within .input-icon {
+.input-container:focus .input-icon {
   fill: #4d5ae5;
 }
 
