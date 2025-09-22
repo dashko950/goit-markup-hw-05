@@ -778,6 +778,7 @@ a:focus {
 .form-checkbox:checked + .checkbox-label > .checkbox-box {
   background-color: var(--pressed-state); /* #404bbf */
   border: none;
+  fill: var(--light); /* #F4F4FD */
 }
 .form-checkbox:checked + .checkbox-label .checkbox-icon {
   fill: var(--light) !important; /* #F4F4FD */
