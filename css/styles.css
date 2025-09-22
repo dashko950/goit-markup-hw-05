@@ -653,6 +653,15 @@ a:focus {
 .form-group {
   margin-bottom: 16px;
 }
+/* Четвертый элемент - 16px */
+.form-group-fourth {
+  margin-bottom: 16px;
+}
+
+/* Пятый элемент (чекбокс) - 24px */
+.form-group-fifth {
+  margin-bottom: 24px;
+}
 
 /* Лейбл поля */
 .form-label {
