@@ -764,10 +764,9 @@ a:focus {
 .form-checkbox:checked + .checkbox-label > .checkbox-box {
   background-color: #404bbf;
   border: none;
-}
-.form-checkbox:checked + .checkbox-label .checkbox-box .checkbox-icon {
   fill: #f4f4fd;
 }
+
 /* Ссылка Privacy Policy */
 .privacy-link {
   color: var(--primary-brand);
