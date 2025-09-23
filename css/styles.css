@@ -401,7 +401,7 @@ img {
 }
 
 .footer-info {
-  margin-right: 120px;
+  margin-right: 80px;
 }
 
 .footer-logo {
@@ -785,7 +785,8 @@ a:focus {
 .privacy-link {
   color: var(--primary-brand);
   margin-left: 4px;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
 }
 
 /* Кнопка отправки */
